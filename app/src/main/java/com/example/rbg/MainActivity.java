@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.
         r_bar = findViewById(R.id.r_seekbar);
         g_bar = findViewById(R.id.g_seekbar);
         b_bar = findViewById(R.id.b_seekbar);
-        r_bar.setOnSeekBarChangeListener(this);
-        g_bar.setOnSeekBarChangeListener(this);
-        b_bar.setOnSeekBarChangeListener(this);
 
     }
 
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.
     public void onClick(View v) {
 
     }
+
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
         switch (seekBar){
