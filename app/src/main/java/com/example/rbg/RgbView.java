@@ -2,6 +2,5 @@ package com.example.rbg;
 
 public interface RgbView {
 
-    void changeRgbBoxColor(int colourInHex);
-
+    void changeRgbBoxColor(String colourInHex);
 }

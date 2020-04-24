@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RgbBox = findViewById(R.id.textView6);
-        changeRgbBoxColor(0xffffffff);
         Presenter = new RgbPresenter(this);
         RValue = findViewById(R.id.r_value);
         r_bar = findViewById(R.id.r_seekbar);
@@ -32,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.
 
     }
 
-    public void changeRgbBoxColor(int colourInHex) {
-        RgbBox.setBackgroundColor(colourInHex);
+    public void changeRgbBoxColor(String colourInHex) {
+        RgbBox.setBackgroundColor(Color.parseColor(colourInHex));
     }
     public void RChanged(int val){
 
@@ -44,13 +43,14 @@ public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-        switch (seekBar){
+
+        switch (seekBar.getId()){
             case R.id.r_seekbar:
-                RgbPresenter.SetR(progress);
+                Presenter.SetR(progress);
             case R.id.g_seekbar:
-                RgbPresenter.SetG(progress);
+                Presenter.SetG(progress);
             case R.id.b_seekbar:
-                RgbPresenter.SetB(progress);
+                Presenter.SetB(progress);
         }
     }
 
