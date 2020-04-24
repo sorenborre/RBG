@@ -49,54 +49,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="r"
+        app:layout_constraintBottom_toTopOf="@+id/r_seekbar"
         app:layout_constraintEnd_toEndOf="@+id/r_seekbar"
-        app:layout_constraintStart_toStartOf="@+id/r_seekbar"
-        tools:layout_editor_absoluteY="13dp" />
+        app:layout_constraintStart_toStartOf="@+id/r_seekbar" />
 
     <TextView
         android:id="@+id/g_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="g"
+        app:layout_constraintBottom_toTopOf="@+id/g_seekbar"
         app:layout_constraintEnd_toEndOf="@+id/g_seekbar"
-        app:layout_constraintStart_toStartOf="@+id/g_seekbar"
-        tools:layout_editor_absoluteY="63dp" />
+        app:layout_constraintStart_toStartOf="@+id/g_seekbar" />
 
     <TextView
         android:id="@+id/b_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="8dp"
+        android:layout_height="0dp"
         android:text="b"
+        app:layout_constraintBottom_toTopOf="@+id/b_seekbar"
         app:layout_constraintEnd_toEndOf="@+id/b_seekbar"
-        app:layout_constraintStart_toStartOf="@+id/b_seekbar"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintStart_toStartOf="@+id/b_seekbar" />
 
     <TextView
-        android:id="@+id/hex_value"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:text="Hex"
+        android:text="Hex:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b_seekbar" />
+        app:layout_constraintTop_toBottomOf="@+id/b_seekbar"
+        app:layout_constraintVertical_bias="0.491" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="25dp"
         android:background="#C32D2D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hex_value" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/r_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/r_seekbar"
-        tools:layout_editor_absoluteY="13dp" />
+        app:layout_constraintBottom_toTopOf="@+id/r_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/r_seekbar" />
+
+    <TextView
+        android:id="@+id/g_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/g_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/g_seekbar" />
+
+    <TextView
+        android:id="@+id/b_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/b_seekbar"
+        app:layout_constraintEnd_toEndOf="@+id/b_seekbar" />
+
+    <TextView
+        android:id="@+id/hex_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text"
+        app:layout_constraintStart_toEndOf="@+id/text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

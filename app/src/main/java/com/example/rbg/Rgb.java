@@ -13,7 +13,6 @@ public class Rgb implements HexObservable {
 
     public Rgb() {
         hexObservers = new ArrayList<>();
-
     }
 
     public void setR(int value) {
@@ -32,17 +31,13 @@ public class Rgb implements HexObservable {
     }
 
     public void setHexColor() {
-
-
         hex = String.format("#%02x%02x%02x", r, g, b);
-
+        notifyObservers();
     }
 
     @Override
     public void addObserver(HexObserver observer) {
         hexObservers.add(observer);
-
-
     }
 
     @Override
