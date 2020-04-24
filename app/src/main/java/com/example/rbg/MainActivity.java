@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements RgbView {
+public class MainActivity extends AppCompatActivity implements RgbView, SeekBar.OnSeekBarChangeListener {
 
-
+    TextView RValue;
     TextView RgbBox;
+    RgbPresenter Presenter;
+    SeekBar r_bar;
+    SeekBar g_bar;
+    SeekBar b_bar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,34 +24,47 @@ public class MainActivity extends AppCompatActivity implements RgbView {
         setContentView(R.layout.activity_main);
         RgbBox = findViewById(R.id.textView6);
         changeRgbBoxColor(0xffffffff);
+        Presenter = new RgbPresenter(this);
+        RValue = findViewById(R.id.r_value);
+        r_bar = findViewById(R.id.r_seekbar);
+        g_bar = findViewById(R.id.g_seekbar);
+        b_bar = findViewById(R.id.b_seekbar);
+        r_bar.setOnSeekBarChangeListener(this);
+        g_bar.setOnSeekBarChangeListener(this);
+        b_bar.setOnSeekBarChangeListener(this);
+
     }
 
-    public void changeRgbBoxColor(int color) {
-        RgbBox.setBackgroundColor(color);
+    public void changeRgbBoxColor(int colourInHex) {
+        RgbBox.setBackgroundColor(colourInHex);
+    }
+    public void RChanged(int val){
 
     }
-
     public void onClick(View v) {
-        if (r.isPlaying()){
-            r.stop();
 
-        }
-
-        if (v.getId() == R.id.soft_boiled) {
-            presenter.timerSetup("soft");
-        }
-        else if (v.getId() == R.id.medium_boiled){
-            presenter.timerSetup("medium");
-        }
-        else if (v.getId() == R.id.hard_boiled){
-            presenter.timerSetup("hard");
-        }
-        else if (v.getId() == R.id.start_timer) {
-            presenter.start();
-        }
-        else if (v.getId() == R.id.stop) {
-            presenter.stop();
+    }
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+        switch (seekBar){
+            case R.id.r_seekbar:
+                RgbPresenter.SetR(progress);
+            case R.id.g_seekbar:
+                RgbPresenter.SetG(progress);
+            case R.id.b_seekbar:
+                RgbPresenter.SetB(progress);
         }
     }
 
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
 }
+
+
